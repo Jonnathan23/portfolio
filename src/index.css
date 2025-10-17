@@ -1,0 +1,23 @@
+:root {
+    --purple: #755cde;
+    --light-orange: #f5a461;
+    --background: #fff7f1;
+    --turquoise: #62c5b7;
+    --orange: #ea7564;
+    --lilac: #54214b;
+    --black: #020303;
+    --title-font-color: #040304;
+    --text-color: #bdb4ac;
+}
+
+/* Renicio para que 1rem = 10px*/
+html {
+    font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+}
