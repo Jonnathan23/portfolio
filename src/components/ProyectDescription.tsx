@@ -1,16 +1,19 @@
+import type { ReactNode } from "react"
 
 type ProyectDescriptionProps = {
     linkGitHub: string
     linkWeb?: string
     linkImage?: string
+    title: string    
+    children: ReactNode
 }
 
-export default function ProyectDescription({ linkGitHub, linkWeb }: ProyectDescriptionProps) {
+export default function ProyectDescription({ linkGitHub, linkWeb, linkImage, title, children }: ProyectDescriptionProps) {
     return (
         <div>
-            <h2>UpTask</h2>
+            <h2>{title}</h2>
             <div>
-                <img width="320" src="img/uptask.png" alt="uptask_proyect" />
+                {linkImage && <img width="320" src={linkImage} alt={`${title}_proyect`} />}
             </div>
             <a href={linkGitHub} target="blank">
                 <svg
@@ -29,7 +32,7 @@ export default function ProyectDescription({ linkGitHub, linkWeb }: ProyectDescr
 
             </a>
             {linkWeb &&
-                <a href={linkWeb}>
+                <a href={linkWeb} target="blank">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="32"
@@ -47,7 +50,7 @@ export default function ProyectDescription({ linkGitHub, linkWeb }: ProyectDescr
                     </svg>
                 </a>
             }
-            <p><strong>Proyecto en desarrollo</strong></p>
+            {children}
         </div>
     );
 }
