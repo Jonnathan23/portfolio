@@ -1,3 +1,5 @@
+import { Skills } from "../db/skills";
+
 
 export default function MySkills() {
     return (
@@ -6,93 +8,46 @@ export default function MySkills() {
             <p>Como programador Full Stack, tengo experiencia trabajando con un ecosistema de tecnologías que cubren todo el ciclo de desarrollo.</p>
 
             <div className="skills-container">
-                <div className="skill-category">
+                <article className="skill-category">
                     <h3>Frontend</h3>
                     <ul>
-                        <li>
-                            <div>
-                                <img width="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" />
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <img width="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" />
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <img width="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" />
-                            </div>
-                        </li>
-                        <li>
-                            <div className="devicon-react-original-wordmark colored">
-
-                                <img width="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg" />
-
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <img width="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original-wordmark.svg" />
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <img width="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/reactnative/reactnative-original-wordmark.svg" />
-                            </div>
-                        </li>
+                        {Skills.frontend.map((skillUrl, index) => (
+                            <li key={index}>
+                                <div><img width="50px" src={skillUrl} alt={`Frontend Skill ${index + 1}`} /></div>
+                            </li>
+                        ))}
                     </ul>
-                </div>
-                <div className="skill-category">
+                </article>
+                <article className="skill-category">
                     <h3>Backend</h3>
                     <ul>
-                        <li>
-                            <div>
-                                <img width="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" />
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <img width="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original-wordmark.svg" />
-                            </div>
-                        </li>
+                        {Skills.backend.map((skillUrl, index) => (
+                            <li key={index}>
+                                <div><img width="50px" src={skillUrl} alt={`Backend Skill ${index + 1}`} /></div>
+                            </li>
+                        ))}
                     </ul>
-                </div>
-                <div className="skill-category">
+                </article>
+                <article className="skill-category">
                     <h3>Bases de Datos</h3>
                     <ul>
-                        <li>
-                            <div>
-                                <img width="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-plain-wordmark.svg" />
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <img width="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg" />
-                            </div>
-                        </li>
+                        {Skills.dataBase.map((skillUrl, index) => (
+                            <li key={index}>
+                                <div><img width="50px" src={skillUrl} alt={`Database Skill ${index + 1}`} /></div>
+                            </li>
+                        ))}
                     </ul>
-                </div>
-                <div className="skill-category">
+                </article>
+                <article className="skill-category">
                     <h3>Herramientas y Control de Versiones</h3>
                     <ul>
-                        <li>
-                            <div>
-                                <img width="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg" />
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <img width="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original-wordmark.svg" />
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <img width="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bitbucket/bitbucket-original-wordmark.svg" />
-                            </div>
-                        </li>
+                        {Skills.tools.map((skillUrl, index) => (
+                            <li key={index}>
+                                <div><img width="50px" src={skillUrl} alt={`Tool Skill ${index + 1}`} /></div>
+                            </li>
+                        ))}
                     </ul>
-                </div>
+                </article>
             </div>
         </section>
     );
