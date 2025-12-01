@@ -7,17 +7,16 @@ function App() {
 
     return (
         <div className='all-content'>
-            <header>
-                <div>
-                    <img width="100px" src="./logo.png" alt="Logo" />
+            <header className='header'>
+                <div className='header__logo__container'>
+                    <img className='header__logo' width="100px" src="./logo.png" alt="Logo" />
                 </div>
-                <div>
-                    <nav>
-                        <a href="#">Contacto</a>
-                    </nav>
-                </div>
+                
+                <nav className='header__nav'>
+                    <a className='header__nav__link' href="#">Contacto</a>
+                </nav>
             </header>
-            <main>
+            <main className='main'>
                 <MyExperience />
                 <MyProyects />
                 <AboutMe />
@@ -26,7 +25,6 @@ function App() {
                 <Contact />
                 <p>Todos los derechos reservados &copy;</p>
             </footer>
-
         </div>
     )
 }

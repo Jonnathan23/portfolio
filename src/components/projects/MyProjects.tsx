@@ -9,6 +9,7 @@ export default function MyProyects() {
             <div>
                 {allProjects.map((project) => (
                     <ProyectDescription
+                        key={project.id}
                         linkGitHub={project.linkGitHub}
                         linkImage={project.linkImage}
                         title={project.title}

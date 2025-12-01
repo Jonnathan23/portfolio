@@ -1,21 +1,30 @@
 import { myExperience } from "../../db/experience";
-import ExperienceData from "./experienceData";
+import ExperienceDataComponent from "./ExperienceData";
+
 
 export default function MyExperience() {
     return (
-        <section>
-            <h3>Mi experiencia</h3>
-            {myExperience.map((experience) => (
-                <ExperienceData
-                    nameEnterprise={experience.nameEnterprise}
-                    date={experience.date}
-                    description={experience.description}
-                    responsibilities={experience.responsibilities}
-                    skills={experience.skills}
-                    tecnologies={experience.tecnologies}
-                />
-            ))
-            }
+        <section className="experience-section">
+            <h2 className="experience-title">Experiencia</h2>
+            <div className="experience-grid">
+                {myExperience.map((experience) => (
+                    <ExperienceDataComponent
+                        key={experience.id}
+                        nameEnterprise={experience.nameEnterprise}
+                        date={experience.date}
+                        description={experience.description}
+                        responsibilities={experience.responsibilities}
+                        skills={experience.skills}
+                        tecnologies={experience.tecnologies}
+                    />
+                ))}
+            </div>
+            <div className="carousel-indicators">
+                <span className="indicator active"></span>
+                <span className="indicator"></span>
+                <span className="indicator"></span>
+                <span className="indicator"></span>
+            </div>
         </section>
     );
 }

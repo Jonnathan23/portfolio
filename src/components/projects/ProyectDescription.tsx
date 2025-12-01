@@ -16,8 +16,8 @@ export default function ProyectDescription({ linkGitHub, linkWeb, linkImage, tit
                 <figure className="project-card__figure">
                     <img width="320" src={linkImage} alt={`Miniatura del proyecto ${title}`} />
                 </figure>
-            )}
-            
+            )}   
+                     
             <div className="project-card__body">
                 <h3>{title}</h3>
                 <div className="project-card__description">
