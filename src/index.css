@@ -8,6 +8,27 @@
     --black: #020303;
     --title-font-color: #040304;
     --text-color: #bdb4ac;
+
+    /* Fondos de Sección */
+    --color-projects: #2563EB;
+    /* Azul */
+    --color-profile: #F97316;
+    /* Naranja */
+    --color-xp: #7C3AED;
+    /* Morado */
+    --color-contact: #10B981;
+    /* Verde */
+
+    /* Base */
+    --color-bg: #FFFBF2;
+    /* Crema suave */
+    --color-text-main: #111827;
+    /* Casi negro */
+    --color-text-inv: #FFFFFF;
+    /* Blanco para textos sobre color */
+
+    /* Hover Overlay (Para tus tarjetas de proyecto) */
+    --overlay-dark: rgba(17, 24, 39, 0.85);
 }
 
 /* Renicio para que 1rem = 10px*/

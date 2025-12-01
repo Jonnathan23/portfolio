@@ -1,5 +1,6 @@
 import type { SkillsData } from "../types";
-import { Tecnologies } from "./projects";
+import { Tecnologies } from "./tecnologies";
+
 
 
 export const Skills: SkillsData = {

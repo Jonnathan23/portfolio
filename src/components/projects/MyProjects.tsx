@@ -1,4 +1,4 @@
-import { allProjects } from "../db/projects";
+import { allProjects } from "../../db/projects";
 import ProyectDescription from "./ProyectDescription"
 
 export default function MyProyects() {

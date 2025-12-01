@@ -18,3 +18,21 @@ export interface SkillsData {
     tools: string[];
 
 }
+
+interface tecnologieExperience {
+    frontend: string[];
+    backend: string[];
+    dataBase: string[];
+    tools: string[];
+}
+
+export interface ExperienceData {
+    id:string;
+    nameEnterprise: string;
+    date: string;
+    description: string;
+    responsibilities: string[];
+    skills: string[];
+    tecnologies: tecnologieExperience;
+    
+}
