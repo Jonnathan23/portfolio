@@ -29,6 +29,7 @@ interface tecnologieExperience {
 export interface ExperienceData {
     id:string;
     nameEnterprise: string;
+    srcImage?: string;
     date: string;
     description: string;
     responsibilities: string[];

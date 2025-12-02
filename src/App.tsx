@@ -18,8 +18,8 @@ function App() {
             </header>
             <main className='main'>
                 <MyExperience />
-                <MyProyects />
                 <AboutMe />
+                <MyProyects />
             </main>
             <footer>
                 <Contact />

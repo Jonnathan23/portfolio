@@ -6,11 +6,13 @@ export default function MyExperience() {
     return (
         <section className="experience-section">
             <h2 className="experience-title">Experiencia</h2>
-            <div className="experience-grid">
+            <div className="experience-timeline">
+                <div className="timeline-line"></div>
                 {myExperience.map((experience) => (
                     <ExperienceDataComponent
                         key={experience.id}
                         nameEnterprise={experience.nameEnterprise}
+                        srcImage={experience.srcImage}
                         date={experience.date}
                         description={experience.description}
                         responsibilities={experience.responsibilities}

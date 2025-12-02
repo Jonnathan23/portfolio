@@ -8,6 +8,7 @@ export const myExperience: ExperienceData[] = [
     {
         id: GenerateUUID.generate(),
         nameEnterprise: "Proyecto: Aplicación Web Full-Stack para el Registro de la Propiedad",
+        srcImage: "img/experience/registro_propiedad.jpeg",
         date: "Prácticas Preprofesionales (Marzo 2025 - Julio 2025)",
         description: "Durante mis prácticas preprofesionales, desarrollé una solución web integral desde cero para el Registro de la Propiedad. El objetivo principal del proyecto era facilitar el proceso de los detalles de pago de la empresa a sus empleados, junto con la generación de documentos necesarios para el banco, mejorando la eficiencia y la productividad de dicho proceso.",
         responsibilities: [

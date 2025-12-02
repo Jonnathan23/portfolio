@@ -116,71 +116,258 @@ html {
     letter-spacing: 0.05em;
 }
 
-.experience-grid {
+.experience-timeline {
+    position: relative;
+    max-width: 110rem;
+    margin: 0 auto;
+    padding: 4rem 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-    margin-bottom: 4rem;
+    grid-template-rows: auto auto auto;
+    /* Cards, Line, Cards */
+    gap: 6rem;
+}
+
+.timeline-line {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    margin: 2rem 0;
+    position: relative;
 }
 
 .experience-card {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
     border-radius: 1.2rem;
-    padding: 2.5rem 2rem;
-    display: flex;
-    align-items: flex-start;
-    gap: 2rem;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    width: 100%;
+    max-width: 38rem;
+    /* Limit width */
+    margin: 0 auto;
+    /* Center in grid cell */
+    position: relative;
     backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    overflow: hidden;
+    margin: 0;
+    /* Reset margin */
 }
 
+/* Top Row Cards (1, 2, 3) */
+/* 
+   MyExperience structure:
+   div.experience-timeline
+      div.timeline-line
+      ExperienceDataComponent...
+*/
+
+/* So timeline-line is nth-child(1) */
+/* Cards are nth-child(2) to nth-child(n) */
+
+/* Top Row: Cards 1, 2, 3 -> nth-child(2), (3), (4) */
+.experience-card:nth-child(-n+4) {
+    grid-row: 1;
+    align-self: end;
+}
+
+/* Bottom Row: Cards 4, 5, 6 -> nth-child(5), (6), (7) */
+.experience-card:nth-child(n+5) {
+    grid-row: 3;
+    align-self: start;
+}
+
+/* Connector Dots */
+.experience-card::before {
+    content: '';
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    background: var(--light-orange);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(245, 164, 97, 0.3);
+    z-index: 10;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Connectors for Top Row */
+.experience-card:nth-child(-n+4)::before {
+    bottom: -3rem;
+    /* Push down to line */
+    top: auto;
+}
+
+/* Connectors for Bottom Row */
+.experience-card:nth-child(n+5)::before {
+    top: -3rem;
+    /* Push up to line */
+    bottom: auto;
+}
+
+/* Connector Lines (Vertical stems) */
+.experience-card::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 3rem;
+    /* Distance to line */
+    background: rgba(255, 255, 255, 0.3);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+/* Stems for Top Row */
+.experience-card:nth-child(-n+4)::after {
+    bottom: -3rem;
+    top: auto;
+}
+
+/* Stems for Bottom Row */
+.experience-card:nth-child(n+5)::after {
+    top: -3rem;
+    bottom: auto;
+}
+
+
+/* Hover Effects */
 .experience-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: scale(1.02);
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    z-index: 20;
+}
+
+/* Card Content Structure */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
 }
 
 .experience-card-logo {
-    flex-shrink: 0;
-    width: 6rem;
-    height: 6rem;
+    width: 5rem;
+    height: 5rem;
     background: white;
     border-radius: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    overflow: hidden;
+    /* Clip image */
+}
+
+.company-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .logo-placeholder {
-    width: 4rem;
-    height: 4rem;
+    width: 3rem;
+    height: 3rem;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-radius: 0.5rem;
 }
 
-.experience-card-content {
+.header-content {
     flex: 1;
 }
 
 .experience-card-title {
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: 1.8rem;
+    font-weight: 700;
     color: var(--color-text-inv);
-    margin-bottom: 0.5rem;
+    margin: 0;
 }
 
 .experience-card-subtitle {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 1rem;
+    margin: 0;
+}
+
+/* Hidden Details (Reveal on Hover) */
+.card-details {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    margin-top: 0;
+}
+
+.experience-card:hover .card-details {
+    max-height: 1000px;
+    /* Arbitrary large height */
+    opacity: 1;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .experience-card-description {
     font-size: 1.4rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
     line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.details-section h4 {
+    font-size: 1.4rem;
+    color: var(--light-orange);
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.details-section ul {
+    list-style-position: inside;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.3rem;
+}
+
+.tech-tags,
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.skill-tag {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    color: var(--color-text-inv);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .experience-timeline {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 3rem;
+    }
+
+    .timeline-line {
+        display: none;
+    }
+
+    .experience-card:nth-child(n) {
+        grid-row: auto;
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .experience-card::before,
+    .experience-card::after {
+        display: none;
+    }
 }
 
 .carousel-indicators {
@@ -210,26 +397,7 @@ html {
     background: rgba(255, 255, 255, 0.6);
 }
 
-/* Responsive design */
-@media (max-width: 1024px) {
-    .experience-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
-@media (max-width: 768px) {
-    .experience-section {
-        padding: 4rem 2rem;
-    }
-
-    .experience-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .experience-title {
-        font-size: 3rem;
-    }
-}
 
 
 /* ----- My Projects -----*/
