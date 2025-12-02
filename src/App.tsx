@@ -17,9 +17,9 @@ function App() {
                 </nav>
             </header>
             <main className='main'>
-                <MyExperience />
-                <AboutMe />
                 <MyProyects />
+                <AboutMe />
+                <MyExperience />
             </main>
             <footer>
                 <Contact />
